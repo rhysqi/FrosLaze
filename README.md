@@ -16,7 +16,7 @@ FrosLaze
 ```
 - Build-Only
 ```
-FrosLaze-build
+FrosLaze -build
 ```
 
 # Tested Platform
