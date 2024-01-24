@@ -28,8 +28,10 @@ EXT		=	.exe
 
 buildware:
 	$(CC) $(CSTD) $(SRC) \
-	$(CFLAGS) -o $(PROGRAM)
+	$(CFLAGS) -D_FreeBSD \
+	-o $(PROGRAM)
 
 buildware-win32:
 	$(CC) $(CSTD) $(SRC) \
-	$(CFLAGS) -o $(PROGRAM)$(EXT)
+	$(CFLAGS) -D_WIN32 \
+	-o $(PROGRAM)$(EXT)
