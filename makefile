@@ -20,7 +20,7 @@ CFLAGS	+=	-Wall -Wno-pedantic
 CFLAGS	+=	-v -H
 
 SRC		=	src/Rhoux-FrosLaze.c
-PROGRAM	=	Rhoux-FrosLaze
+PROGRAM	=	FrosLaze
 
 EXT		=	.exe
 
