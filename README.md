@@ -21,7 +21,7 @@ FrosLaze -build
 
 # Tested Platform
 - [x] FreeBSD 14
-- [ ] WIndows 11
+- [x] WIndows 11
 
 # Features
 - Library searching
