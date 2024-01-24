@@ -1,3 +1,6 @@
+include format.mk
+
+# C language configuration and compiler options
 CC		=	clang
 CSTD	=	-std=c11
 
@@ -6,8 +9,8 @@ CFLAGS	+=	-fno-fixed-point -fno-strict-aliasing -fno-exceptions \
 			-fno-spell-checking -fno-rtti -fno-rtti-data -fno-access-control \
 			-fno-addrsig -fno-gnu-inline-asm
 
-CFLAGS	+=	-fstrict-enums -fstack-protector-strong -fvectorize -fslp-vectorize -fsplit-lto-unit \
-			-fstrict-float-cast-overflow -fstrict-vtable-pointers \
+CFLAGS	+=	-fstrict-enums -fstack-protector-strong -fvectorize -fslp-vectorize \
+			-fstrict-float-cast-overflow -fstrict-vtable-pointers -fsplit-lto-unit \
 			-fconvergent-functions -fenable-matrix
 
 CFLAGS	+=	-mstack-arg-probe -mstackrealign -msoft-float -mno-lvi-cfi \
