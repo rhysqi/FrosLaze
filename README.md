@@ -5,7 +5,7 @@ Please read the PDF in docs folder for more information
 
 | Filename | Description |
 | - | -
-| `.laze` | Stand for `blaze` file. The purpose for setup project structures and compiler target.
+| `.laze` | Stand for `blaze` file. The purpose for setup project structures, create library and compiler target.
 | `.fros` | Stand for `frost` file. The purpose for compiler options, arguments and libraries linking.
 | `.rfl`  | Stand for `rhoux` file. The purpose for binding `.laze` file and `.fros` file to build and build `multi/single` <br> target using FrosLaze.
   
