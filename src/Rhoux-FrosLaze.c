@@ -4,7 +4,6 @@
 int main(int argc, char *argv[]){
 
     Rhoux_Args(argc, argv);
-
     Blaze_Args(argv);
     Frost_Args(argv);
 
