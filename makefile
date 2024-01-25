@@ -1,23 +1,30 @@
-include format.mk
+# include format.mk
+include lib.mk
 
 # C language configuration and compiler options
-CC		=	clang
+CC		=	clang15
 CSTD	=	-std=c11
 
-CFLAGS	=	-O3
+CFLAGS	=	-O3 -flto
+
 CFLAGS	+=	-fno-fixed-point -fno-strict-aliasing -fno-exceptions \
 			-fno-spell-checking -fno-rtti -fno-rtti-data -fno-access-control \
-			-fno-addrsig -fno-gnu-inline-asm
+			-fno-addrsig -fno-cxx-modules -fno-declspec -fno-autolink \
+			-fstandalone-debug
 
-CFLAGS	+=	-fstrict-enums -fstack-protector-strong -fvectorize -fslp-vectorize \
+CFLAGS	+=	-fcf-protection -fcoverage-mapping -fstack-clash-protection \
+			-fstrict-enums -fstack-protector-strong -fvectorize -fslp-vectorize \
 			-fstrict-float-cast-overflow -fstrict-vtable-pointers -fsplit-lto-unit \
-			-fconvergent-functions -fenable-matrix
+			-fconvergent-functions -fenable-matrix -fsplit-machine-functions \
+			-fprofile-instr-generate 
 
 CFLAGS	+=	-mstack-arg-probe -mstackrealign -msoft-float -mno-lvi-cfi \
 			-mlvi-cfi -mlvi-hardening
 
 CFLAGS	+=	-Wall -Wno-pedantic
-CFLAGS	+=	-v -H
+CFLAGS	+=	-v
+
+CLIBS	=	-I/usr/local/include -L/usr/local/lllvm/
 
 SRC		=	src/Rhoux-FrosLaze.c
 PROGRAM	=	FrosLaze
@@ -28,7 +35,7 @@ EXT		=	.exe
 
 buildware:
 	$(CC) $(CSTD) $(SRC) \
-	$(CFLAGS) -D_FreeBSD \
+	$(CFLAGS) $(CLIBS) -D_FreeBSD  \
 	-o $(PROGRAM)
 
 buildware-win32:
