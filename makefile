@@ -1,44 +1,36 @@
-# include format.mk
-include lib.mk
+include tools/config.mk
+include tools/format.mk
+include tools/lib.mk
 
-# C language configuration and compiler options
-CC		=	clang15
-CSTD	=	-std=c11
+# Platform Version Dependent
+VERSION		=	15
 
-CFLAGS	=	-O3 -flto
+# FreeBSD C Options
+CFBSD		=	-fsplit-machine-functions
 
-CFLAGS	+=	-fno-fixed-point -fno-strict-aliasing -fno-exceptions \
-			-fno-spell-checking -fno-rtti -fno-rtti-data -fno-access-control \
-			-fno-addrsig -fno-cxx-modules -fno-declspec -fno-autolink \
-			-fstandalone-debug
+CLIBFBSD	=	-I/usr/local/include -L/usr/local/lllvm/
 
-CFLAGS	+=	-fcf-protection -fcoverage-mapping -fstack-clash-protection \
-			-fstrict-enums -fstack-protector-strong -fvectorize -fslp-vectorize \
-			-fstrict-float-cast-overflow -fstrict-vtable-pointers -fsplit-lto-unit \
-			-fconvergent-functions -fenable-matrix -fsplit-machine-functions \
-			-fprofile-instr-generate 
+# Target
+SRC			=	src/Rhoux-FrosLaze.c
+PROGRAM		=	FrosLaze
 
-CFLAGS	+=	-mstack-arg-probe -mstackrealign -msoft-float -mno-lvi-cfi \
-			-mlvi-cfi -mlvi-hardening
+EXT			=	.exe
 
-CFLAGS	+=	-Wall -Wno-pedantic
-CFLAGS	+=	-v
-
-CLIBS	=	-I/usr/local/include -L/usr/local/lllvm/
-
-SRC		=	src/Rhoux-FrosLaze.c
-PROGRAM	=	FrosLaze
-
-EXT		=	.exe
+# Linking
+LIB_LINK	=	build/Rhoux.lib
+LIB_LINK	+=	build/Blaze.lib
+LIB_LINK	+=	build/Frost.lib
 
 .PHONY: buildware buildware-win32
 
 buildware:
-	$(CC) $(CSTD) $(SRC) \
-	$(CFLAGS) $(CLIBS) -D_FreeBSD  \
+	$(CC)$(VERSION) $(CSTD) $(SRC) \
+	$(LIB_Rhoux) $(LIB_Laze) $(LIB_Fros) \
+	$(CFBSD) $(CFLAGS) $(CLIBFBSD) -D_FreeBSD  \
 	-o $(PROGRAM)
 
 buildware-win32:
 	$(CC) $(CSTD) $(SRC) \
 	$(CFLAGS) -D_WIN32 \
+	$(LIB_LINK) \
 	-o $(PROGRAM)$(EXT)
