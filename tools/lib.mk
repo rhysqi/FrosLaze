@@ -9,15 +9,15 @@ LIB_Laze		=	build/Blaze
 LIB_Fros		=	build/Frost
 
 # Lib Output
-LIB_Rhoux-o	=	build/Rhoux.o
-LIB_Rhoux-o	+=	build/Rhoux-Arguments.o
-LIB_Rhoux-o	+=	build/Rhoux-Symbol.o
+LIB_Rhoux-o		=	build/Rhoux.o
+LIB_Rhoux-o		+=	build/Rhoux-Arguments.o
+LIB_Rhoux-o		+=	build/Rhoux-Symbol.o
 
-LIB_Laze-o	+=	build/Blaze-Arguments.o
-LIB_Laze-o	+=	build/Blaze-Symbol.o
+LIB_Laze-o		+=	build/Blaze-Arguments.o
+LIB_Laze-o		+=	build/Blaze-Symbol.o
 
-LIB_Fros-o	+=	build/Frost-Arguments.o
-LIB_Fros-o	+=	build/Frost-Symbol.o
+LIB_Fros-o		+=	build/Frost-Arguments.o
+LIB_Fros-o		+=	build/Frost-Symbol.o
 
 LIB_Rhoux-obj	=	build/Rhoux.obj
 LIB_Rhoux-obj	+=	build/Rhoux-Arguments.obj
@@ -44,23 +44,34 @@ build_dir:
 	mkdir -p build
 
 build-static: build_dir
-	$(CC) $(CSTD) -c -static lib/Rhoux.c $(CFLAGS) -o build/Rhoux.o
-	$(CC) $(CSTD) -c -static lib/Rhoux-Arguments.c $(CFLAGS) -o build/Rhoux-Arguments.o
-	$(CC) $(CSTD) -c -static lib/Rhoux-Symbol.c $(CFLAGS) -o build/Rhoux-Symbol.o
+	$(CC) $(CSTD) -c -static lib/Rhoux.c $(CFLAGS) $(CFBSD) -o build/Rhoux.o
+	$(CC) $(CSTD) -c -static lib/Rhoux-Arguments.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Arguments.o
+	$(CC) $(CSTD) -c -static lib/Rhoux-Symbol.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Symbol.o
 
-	$(CC) $(CSTD) -c -static lib/Blaze-Arguments.c $(CFLAGS) -o build/Blaze-Arguments.o
-	$(CC) $(CSTD) -c -static lib/Blaze-Symbol.c $(CFLAGS) -o build/Blaze-Symbol.o
+	$(CC) $(CSTD) -c -static lib/Blaze-Arguments.c $(CFLAGS) $(CFBSD) -o build/Blaze-Arguments.o
+	$(CC) $(CSTD) -c -static lib/Blaze-Symbol.c $(CFLAGS) $(CFBSD) -o build/Blaze-Symbol.o
 
-	$(CC) $(CSTD) -c -static lib/Frost-Arguments.c $(CFLAGS) -o build/Frost-Arguments.o
-	$(CC) $(CSTD) -c -static lib/Frost-Symbol.c $(CFLAGS) -o build/Frost-Symbol.o
+	$(CC) $(CSTD) -c -static lib/Frost-Arguments.c $(CFLAGS) $(CFBSD) -o build/Frost-Arguments.o
+	$(CC) $(CSTD) -c -static lib/Frost-Symbol.c $(CFLAGS) $(CFBSD) -o build/Frost-Symbol.o
 
 	$(LL_ARC) $(LIB_Rhoux).a $(LIB_Rhoux-o)
 	$(LL_ARC) $(LIB_Laze).a $(LIB_Laze-o)
 	$(LL_ARC) $(LIB_Fros).a $(LIB_Fros-o)
 
-build-shared:
-	$(CC) $(CSTD) -c -shared $(LIB_Rhoux) $(LIB_Laze) $(LIB_Fros) $(CFLAGS) -o $(OUTPUT)
+build-shared: build-static
+	$(CC) $(CSTD) -c -fPIE -shared lib/Rhoux.c $(CFLAGS) $(CFBSD) -o build/Rhoux.o
+	$(CC) $(CSTD) -c -fPIE -shared lib/Rhoux-Arguments.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Arguments.o
+	$(CC) $(CSTD) -c -fPIE -shared lib/Rhoux-Symbol.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Symbol.o
 
+	$(CC) $(CSTD) -c -fPIE -shared lib/Blaze-Arguments.c $(CFLAGS) $(CFBSD) -o build/Blaze-Arguments.o
+	$(CC) $(CSTD) -c -fPIE -shared lib/Blaze-Symbol.c $(CFLAGS) $(CFBSD) -o build/Blaze-Symbol.o
+
+	$(CC) $(CSTD) -c -fPIE -shared lib/Frost-Arguments.c $(CFLAGS) $(CFBSD) -o build/Frost-Arguments.o
+	$(CC) $(CSTD) -c -fPIE -shared lib/Frost-Symbol.c $(CFLAGS) $(CFBSD) -o build/Frost-Symbol.o
+
+	$(CC) -shared $(LIB_Rhoux-o) $(LIB_Laze-o) $(LIB_Fros-o) $(CFBSD) $(CFLAGS) -o build/Rhoux-FrosLaze.so
+
+# Windows make
 build-lib-win32:
 	$(CC) $(CSTD) -c -static lib/Rhoux.c $(CFLAGS) -o build/Rhoux.obj
 	$(CC) $(CSTD) -c -static lib/Rhoux-Arguments.c $(CFLAGS) -o build/Rhoux-Arguments.obj
