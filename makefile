@@ -12,14 +12,13 @@ CLIBFBSD	=	-I/usr/local/include -L/usr/local/lllvm/
 
 # Target
 SRC			=	src/Rhoux-FrosLaze.c
-PROGRAM		=	FrosLaze
+PROGRAM		=	bin/FrosLaze
 
 EXT			=	.exe
 
 # Linking
-LIB_LINK	=	build/Rhoux.lib
-LIB_LINK	+=	build/Blaze.lib
-LIB_LINK	+=	build/Frost.lib
+LIB_LINK	=	-L .\build\Rhoux-FrosLaze.dll \
+				.\build\Blaze.lib .\build\Frost.lib .\build\Rhoux.lib
 
 .PHONY: buildware buildware-win32
 
@@ -29,8 +28,7 @@ buildware: build-shared
 	$(CFBSD) $(CFLAGS) $(CLIBFBSD) -D_FreeBSD  \
 	-o $(PROGRAM)
 
-buildware-win32:
-	$(CC) $(CSTD) $(SRC) -flto \
+buildware-win32: build-shared-win32
+	$(CC) $(CSTD) $(SRC) $(LIB_LINK) \
 	$(CFLAGS) -D_WIN32 \
-	$(LIB_LINK) \
-	-o $(PROGRAM)$(EXT)
+	-o $(PROGRAM)$(EXT) 
