@@ -6,7 +6,7 @@ include tools/lib.mk
 VERSION		=	15
 
 # FreeBSD C Options
-CFBSD		=	-fsplit-machine-functions
+CFBSD		=	-fsplit-machine-functions -fno-autolink -fno-declspec \
 
 CLIBFBSD	=	-I/usr/local/include -L/usr/local/lllvm/
 
@@ -23,14 +23,14 @@ LIB_LINK	+=	build/Frost.lib
 
 .PHONY: buildware buildware-win32
 
-buildware:
-	$(CC)$(VERSION) $(CSTD) $(SRC) \
-	$(LIB_Rhoux).a $(LIB_Laze).a $(LIB_Fros).a \
+buildware: build-shared
+	$(CC)$(VERSION) $(CSTD) $(SRC) -flto \
+	$(LIB_Rhoux).a $(LIB_Laze).a $(LIB_Fros).a build/Rhoux-FrosLaze.so \
 	$(CFBSD) $(CFLAGS) $(CLIBFBSD) -D_FreeBSD  \
 	-o $(PROGRAM)
 
 buildware-win32:
-	$(CC) $(CSTD) $(SRC) \
+	$(CC) $(CSTD) $(SRC) -flto \
 	$(CFLAGS) -D_WIN32 \
 	$(LIB_LINK) \
 	-o $(PROGRAM)$(EXT)
