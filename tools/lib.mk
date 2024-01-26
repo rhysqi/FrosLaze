@@ -42,6 +42,7 @@ OUT_Fros		=	build/Frost
 
 # BUild target
 build_dir:
+	mkdir -p bin
 	mkdir -p build
 	mkdir -p build/cache
 
