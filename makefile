@@ -25,7 +25,7 @@ LIB_LINK	+=	build/Frost.lib
 
 buildware:
 	$(CC)$(VERSION) $(CSTD) $(SRC) \
-	$(LIB_Rhoux) $(LIB_Laze) $(LIB_Fros) \
+	$(LIB_Rhoux).a $(LIB_Laze).a $(LIB_Fros).a \
 	$(CFBSD) $(CFLAGS) $(CLIBFBSD) -D_FreeBSD  \
 	-o $(PROGRAM)
 
