@@ -8,7 +8,7 @@ Please read the PDF in docs folder for more information
 | `.laze` | Stand for `blaze` file. The purpose for setup project structures, create library and compiler target.
 | `.fros` | Stand for `frost` file. The purpose for compiler options, arguments and libraries linking.
 | `.rfl`  | Stand for `rhoux` file. The purpose for binding `.laze` file and `.fros` file to build and build `multi/single` target using FrosLaze.
-  
+
 ## How to use
 - Runtime
 ```
@@ -32,4 +32,33 @@ FrosLaze setup
 - Multi-target compiling
 - Dependencies version lock
 - Support multi compiler and interpreter
+
+
+# Manual Build and Toolchains
+## Toolchains
+```
+Clang/LLVM 15
+GNU makefile
+```
+
+## Build Software
+### Windows
+1. Create Folder Here
+```
+git clone https://github.com/rhysqi/Rhoux-FrosLaze.git
+cd Rhoux-FrosLaze
+mkdir build, bin, build/cache
+```
+
+2. Build
+```
+make buildware-win32
+```
+
+### FreeBSD
+```
+git clone https://github.com/rhysqi/Rhoux-FrosLaze.git
+cd Rhoux-FrosLaze
+make buildware
+```
 
