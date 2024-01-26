@@ -41,17 +41,22 @@ OUT_Frost		=	Frost
 
 # BUild target
 build_dir:
-	mkdir /p build
+	mkdir -p build
 
-build-static:
+build-static: build_dir
 	$(CC) $(CSTD) -c -static lib/Rhoux.c $(CFLAGS) -o build/Rhoux.o
 	$(CC) $(CSTD) -c -static lib/Rhoux-Arguments.c $(CFLAGS) -o build/Rhoux-Arguments.o
 	$(CC) $(CSTD) -c -static lib/Rhoux-Symbol.c $(CFLAGS) -o build/Rhoux-Symbol.o
-	$(CC) $(CSTD) -c -static $(LIB_Rhoux-o).o $(CFLAGS) -o $(OUT_Rhoux).a
 
-	$(CC) $(CSTD) -c -static $(LIB_Rhoux-o) $(CFLAGS) -o $(OUT_Rhoux).o
-	$(CC) $(CSTD) -c -static $(LIB_Laze) $(CFLAGS) -o $(OUT_Blaze).o
-	$(CC) $(CSTD) -c -static $(LIB_Fros) $(CFLAGS) -o $(OUT_Frost).o
+	$(CC) $(CSTD) -c -static lib/Blaze-Arguments.c $(CFLAGS) -o build/Blaze-Arguments.o
+	$(CC) $(CSTD) -c -static lib/Blaze-Symbol.c $(CFLAGS) -o build/Blaze-Symbol.o
+
+	$(CC) $(CSTD) -c -static lib/Frost-Arguments.c $(CFLAGS) -o build/Frost-Arguments.o
+	$(CC) $(CSTD) -c -static lib/Frost-Symbol.c $(CFLAGS) -o build/Frost-Symbol.o
+
+	$(LL_ARC) $(LIB_Rhoux).a $(LIB_Rhoux-o)
+	$(LL_ARC) $(LIB_Laze).a $(LIB_Laze-o)
+	$(LL_ARC) $(LIB_Fros).a $(LIB_Fros-o)
 
 build-shared:
 	$(CC) $(CSTD) -c -shared $(LIB_Rhoux) $(LIB_Laze) $(LIB_Fros) $(CFLAGS) -o $(OUTPUT)
