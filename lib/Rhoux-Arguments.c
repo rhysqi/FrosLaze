@@ -29,30 +29,39 @@ void Rhoux_RM_Line(char *_STR, char _Remove) {
 
 // Rhoux Parsing Function
 void Rhoux_Parser(char *_VALUE){
-	
-	Rhoux_RM_Line(_VALUE,'\n');
 
 	// Rhoux Arguments
+	Rhoux_Help(_VALUE);
 	Rhoux_Version(_VALUE);
 }
 
 // Help Function
-void Rhoux_Help(){
-	printf("Available Options: \n");
-	for (int x = 0; x < 3; ++x) {
-		printf("%s \n", _DESC_t[x]);
+void Rhoux_Help(char *_VALUE){
+	
+	Rhoux_RM_Line(_VALUE,'\n');
+	if (strcmp( _VALUE, _DESC_t[2]) == 0){
+		printf("\n");
+
+		printf("Available Options: \n");
+		for (int x = 0; x < 4; ++x) {
+			printf(" %s\n", _DESC_t[x]);
 		}
+		printf("\n");
+	}
+
 }
 
 void Rhoux_Version(char *_VALUE){
+	Rhoux_RM_Line(_VALUE,'\n');
 	if (strcmp(_VALUE, _DESC_t[3]) == 0) {
+		printf("\n");
 		printf("Rhoux-FrosLaze Version: %s\n", VERSION);
+		printf("\n");
+
 	}
 }
 
 void Rhoux_Args(int COUNT, char *_VALUE[]){
 	// Arguments Checking
-	if (strcmp( _VALUE[1], _DESC_t[2]) == 1) {
-		Rhoux_Help();
-	}
+	Rhoux_Help(*_VALUE);
 }

@@ -20,7 +20,7 @@ void Rhoux_FrosLaze(int _COUNT, char *_INPUT, int STATE){
 	char *_BUFF = (char *) malloc(sizeof(MAX_COUNT));
 
 	if (_COUNT <= 2) {
-	    printf("(=) Rhoux-FrosLaze build system %s (-)\n", VERSION);
+	    printf("(=) Rhoux-FrosLaze build system %s (=)\n", VERSION);
 		volatile int MSG[] = {-1, 2, 5};
 
 		// System Service
