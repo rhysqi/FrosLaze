@@ -20,4 +20,4 @@ CFLAGS		+=	-mstack-arg-probe -mstackrealign -msoft-float -mno-lvi-cfi \
 				-mlvi-cfi -mlvi-hardening
 
 CFLAGS		+=	-Wall -Wno-pedantic
-CFLAGS		+=	-v -H
+CFLAGS		+=
