@@ -7,10 +7,10 @@
 #include <string.h>
 
 const char *_DESC_t[] = {
-		"build", 
-		"setup",
-		"help",
-		"version"
+	"build",
+	"setup",
+	"help",
+	"version"
 };
 
 // Remove new line
@@ -26,6 +26,13 @@ void Rhoux_RM_Line(char *_STR, char _Remove) {
     _STR[j] = '\0';  // Adding null character
 }
 
+void Rhoux_End(char *_VALUE){
+	Rhoux_RM_Line(_VALUE,'\n');
+	if (strcmp(_VALUE, "exit") == 0) {
+		printf("Rhoux-FrosLaze Terminated !\n");
+		exit(1);
+	}
+}
 
 // Rhoux Parsing Function
 void Rhoux_Parser(char *_VALUE){
@@ -33,11 +40,11 @@ void Rhoux_Parser(char *_VALUE){
 	// Rhoux Arguments
 	Rhoux_Help(_VALUE);
 	Rhoux_Version(_VALUE);
+	Rhoux_End(_VALUE);
 }
 
 // Help Function
 void Rhoux_Help(char *_VALUE){
-	
 	Rhoux_RM_Line(_VALUE,'\n');
 	if (strcmp( _VALUE, _DESC_t[2]) == 0){
 		printf("\n");
@@ -48,7 +55,6 @@ void Rhoux_Help(char *_VALUE){
 		}
 		printf("\n");
 	}
-
 }
 
 void Rhoux_Version(char *_VALUE){
@@ -57,11 +63,5 @@ void Rhoux_Version(char *_VALUE){
 		printf("\n");
 		printf("Rhoux-FrosLaze Version: %s\n", VERSION);
 		printf("\n");
-
 	}
-}
-
-void Rhoux_Args(int COUNT, char *_VALUE[]){
-	// Arguments Checking
-	Rhoux_Help(*_VALUE);
 }

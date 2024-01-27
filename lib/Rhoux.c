@@ -8,7 +8,7 @@
 #include <signal.h>
 
 #define MIN_COUNT (1 << 8)
-#define MAX_COUNT (MIN_COUNT * 2)
+#define MAX_COUNT (MIN_COUNT * 8)
 
 // Rhoux-FrosLaze Functions
 void Rhoux_Interrupt(int SIG_INTR) {
@@ -19,8 +19,8 @@ void Rhoux_FrosLaze(int _COUNT, char *_INPUT, int STATE){
 
 	char *_BUFF = (char *) malloc(sizeof(MAX_COUNT));
 
-	if (_COUNT <= 2) {
-	    printf("(=) Rhoux-FrosLaze build system %s (=)\n", VERSION);
+	if (_COUNT <= 1) {
+	    printf("(=) Rhoux-FrosLaze build system %s (=)\n\n", VERSION);
 		volatile int MSG[] = {-1, 2, 5};
 
 		// System Service
@@ -30,12 +30,11 @@ void Rhoux_FrosLaze(int _COUNT, char *_INPUT, int STATE){
 			char *Base = fgets(_INPUT, MAX_COUNT, stdin);
 
 			// Check arguments length
-			if (MAX_COUNT) {
+			if (strlen(Base) <= MAX_COUNT) {
 				// Process Rhoux, Blaze, and Frost running
 				if (Base != NULL) {
 					char *BUFF = Base;
-					Rhoux_Parser(BUFF);
-					
+					Rhoux_Parser(Base);
 				} else if (strcmp(Base, "^C")) {
 					// Interrupt Signal
 					Rhoux_Interrupt(1);
@@ -49,4 +48,12 @@ void Rhoux_FrosLaze(int _COUNT, char *_INPUT, int STATE){
 	else {
 		exit(1);
 	}
+}
+
+// Rhoux Arguments
+void Rhoux_Args(int COUNT, char *_VALUE[]){
+	// Arguments Checking
+	COUNT = 1;
+	Rhoux_Help(_VALUE[COUNT]);
+	Rhoux_Version(_VALUE[COUNT]);
 }
