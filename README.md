@@ -9,6 +9,20 @@ Please read the PDF in docs folder for more information
 | `.fros` | Stand for `frost` file. The purpose for compiler options, arguments and libraries linking.
 | `.rfl`  | Stand for `rhoux` file. The purpose for binding `.laze` file and `.fros` file to build and build `multi/single` target using FrosLaze.
 
+# Features
+- Library searching
+- Multi-target compiling
+- Dependencies version lock
+- Support multi compiler and interpreter
+
+| Language | Tools | Support Version
+| - | - | -
+| C/C++ | Clang | v1.0 |
+| Java | - | - |
+| Python | - | - |
+| Lua | - | - |
+
+
 ## How to use
 - Runtime
 ```
@@ -26,13 +40,6 @@ FrosLaze setup
 # Tested Platform
 - [x] FreeBSD 14
 - [x] WIndows 11
-
-# Features
-- Library searching
-- Multi-target compiling
-- Dependencies version lock
-- Support multi compiler and interpreter
-
 
 # Manual Build and Toolchains
 ## Toolchains
