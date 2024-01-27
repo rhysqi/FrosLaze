@@ -28,10 +28,6 @@ Please read the PDF in docs folder for more information
 ```
 FrosLaze
 ```
-- Build-Only
-```
-FrosLaze build
-```
 - Setup
 ```
 FrosLaze setup
