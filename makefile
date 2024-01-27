@@ -31,4 +31,4 @@ buildware: build-shared
 buildware-win32: build-shared-win32
 	$(CC) $(CSTD) $(SRC) $(LIB_LINK) \
 	$(CFLAGS) -D_WIN32 \
-	-o $(PROGRAM)$(EXT) 
+	-o $(PROGRAM)$(EXT)
