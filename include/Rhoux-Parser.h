@@ -2,6 +2,7 @@
 #define RHOUX_PARSER_H
 
 #define VERSION "v1.0"
+#include <stdio.h>
 
 // Declaration for Rhoux-FrosLaze Functions
 void Rhoux_FrosLaze(int _COUNT, char *_INPUT, int STATE);
