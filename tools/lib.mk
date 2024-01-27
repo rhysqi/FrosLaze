@@ -62,15 +62,15 @@ build-static: build_dir
 	$(LL_ARC) $(LIB_Fros).a $(LIB_Fros-o)
 
 build-shared: build-static
-	$(CC) $(CSTD) -c -fPIE -shared lib/Rhoux.c $(CFLAGS) $(CFBSD) -o build/Rhoux.o
-	$(CC) $(CSTD) -c -fPIE -shared lib/Rhoux-Arguments.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Arguments.o
-	$(CC) $(CSTD) -c -fPIE -shared lib/Rhoux-Symbol.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Symbol.o
+	$(CC) $(CSTD) -c -fPIC -shared lib/Rhoux.c $(CFLAGS) $(CFBSD) -o build/Rhoux.o
+	$(CC) $(CSTD) -c -fPIC -shared lib/Rhoux-Arguments.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Arguments.o
+	$(CC) $(CSTD) -c -fPIC -shared lib/Rhoux-Symbol.c $(CFLAGS) $(CFBSD) -o build/Rhoux-Symbol.o
 
-	$(CC) $(CSTD) -c -fPIE -shared lib/Blaze-Arguments.c $(CFLAGS) $(CFBSD) -o build/Blaze-Arguments.o
-	$(CC) $(CSTD) -c -fPIE -shared lib/Blaze-Symbol.c $(CFLAGS) $(CFBSD) -o build/Blaze-Symbol.o
+	$(CC) $(CSTD) -c -fPIC -shared lib/Blaze-Arguments.c $(CFLAGS) $(CFBSD) -o build/Blaze-Arguments.o
+	$(CC) $(CSTD) -c -fPIC -shared lib/Blaze-Symbol.c $(CFLAGS) $(CFBSD) -o build/Blaze-Symbol.o
 
-	$(CC) $(CSTD) -c -fPIE -shared lib/Frost-Arguments.c $(CFLAGS) $(CFBSD) -o build/Frost-Arguments.o
-	$(CC) $(CSTD) -c -fPIE -shared lib/Frost-Symbol.c $(CFLAGS) $(CFBSD) -o build/Frost-Symbol.o
+	$(CC) $(CSTD) -c -fPIC -shared lib/Frost-Arguments.c $(CFLAGS) $(CFBSD) -o build/Frost-Arguments.o
+	$(CC) $(CSTD) -c -fPIC -shared lib/Frost-Symbol.c $(CFLAGS) $(CFBSD) -o build/Frost-Symbol.o
 
 	$(CC) -shared $(LIB_Rhoux-o) $(LIB_Laze-o) $(LIB_Fros-o) $(CFBSD) $(CFLAGS) -o build/Rhoux-FrosLaze.so
 
