@@ -6,33 +6,26 @@
 #include <stdbool.h>
 #include <string.h>
 
-void Rhoux_Version(int COUNT, char *_VALUE[]){
+const char *_DESC_t[] = {
+		"build", 
+		"setup",
+		"help",
+		"version"
+};
 
+// Help Function
+void Rhoux_Help(int COUNT, char *_VALUE[]){
+	printf("Available Options: \n");
+	for (int x = 0; x < 3; ++x) {
+		printf("%s \n", _DESC_t[x]);
+		}
 }
 
-void Rhoux_Help(int COUNT, char *_VALUE[]){
-
-	const char *_HELP_t[] = {
-		"build", 
-		"setup",
-		"version",
-	};
-
-	const char *_DESC_t[] = {
-		"build", 
-		"setup",
-		"version",
-	};
-
-	if (strcmp(_VALUE[1], "help") == 0) {
-		printf("%s \n", *_HELP_t);
-	}
+void Rhoux_Version(int argc, char *_VALUE[]){
+	printf("Rhoux-FrosLaze Version: %s\n", VERSION);
 }
 
 void Rhoux_Args(int COUNT, char *_VALUE[]){
-	if (strcmp(_VALUE[1], "build") == 0) {
-		printf("Rhoux-FrosLaze Building ...\n");
-	} else if (strcmp(_VALUE[1], "setup") == 0) {
-		printf("Rhoux-FrosLaze project setup ...\n");
-	}
+	// Arguments Checking
+	
 }
