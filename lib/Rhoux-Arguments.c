@@ -39,6 +39,15 @@ void Rhoux_Build(char _VALUE[]){
 	if (strcmp(_VALUE, "build") == 0) {
 		printf("Rhoux-FrosLaze build ...\n");
 		
+		// Blaze Check Arguments
+		Blaze_Parser(&_VALUE);
+		Blaze_Args(&_VALUE);
+		Blaze_Symbol(&_VALUE);
+
+		// Frost Check Arguments
+		Frost_Parser(&_VALUE);
+		Frost_Args(&_VALUE);
+		Frost_Symbol(&_VALUE);	
 	}
 }
 

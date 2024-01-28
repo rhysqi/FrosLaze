@@ -9,6 +9,7 @@ void Rhoux_FrosLaze(char *_INPUT, int STATE);
 void Rhoux_Setup(char *VALUE);
 void Rhoux_Help(char *_VALUE);
 void Rhoux_Build(char *_VALUE);
+void Rhoux_End(char *_VALUE);
 
 void Rhoux_Args(int COUNT, char *_VALUE[]);
 void Rhoux_Parser(int COUNT, char *_VALUE[]);

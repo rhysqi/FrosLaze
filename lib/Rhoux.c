@@ -16,13 +16,17 @@ void Rhoux_Interrupt(int SIG_INTR) {
 }
 
 // Rhoux Runtime Arguments
-void Rhoux_Args_Runtime(int COUNT, char *_VALUE[]){
+void Arguments_Runtime(int COUNT, char *_VALUE[]){
 	// Arguments Checking
 	int DATA = COUNT - 1;
+
+	// Rhoux Check Arguments
+	Rhoux_Build(_VALUE[DATA]);
 	Rhoux_Help(_VALUE[DATA]);
 	Rhoux_Version(_VALUE[DATA]);
 	Rhoux_Setup(_VALUE[DATA]);
-	Rhoux_Build(_VALUE[DATA]);
+	Rhoux_End(_VALUE[DATA]);
+
 }
 
 
@@ -38,7 +42,7 @@ void Rhoux_FrosLaze(char *_INPUT, int STATE){
 		} else {
 			printf("X= ");
 			fgets(BUFF, 10, stdin);
-			Rhoux_Args_Runtime(1,&BUFF);
+			Arguments_Runtime(1,&BUFF);
 		}
 	}
 }
@@ -51,5 +55,7 @@ void Rhoux_Args(int COUNT, char *_VALUE[]){
 	Rhoux_Version(_VALUE[DATA]);
 	Rhoux_Setup(_VALUE[DATA]);
 	Rhoux_Build(_VALUE[DATA]);
+
+
 }
 
