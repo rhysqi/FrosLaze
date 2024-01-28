@@ -16,9 +16,7 @@ const char *_COM_Help_t[] = {
 
 const char *_DESC_t[] = {
 	"for build using Rhoux-FrosLaze",
-	"for generate default setup  \n"
-	"   FrosLaze setup C clang default",
-
+	"for generate default setup  \n   FrosLaze setup C clang default",
 	"for help",
 	"version information",
 	"for quitting FrosLaze runtime"
