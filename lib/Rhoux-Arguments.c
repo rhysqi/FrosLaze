@@ -10,7 +10,8 @@ const char *_COM_Help_t[] = {
 	"build",
 	"setup",
 	"help",
-	"version"
+	"version",
+	"exit"
 };
 
 const char *_DESC_t[] = {
@@ -19,7 +20,8 @@ const char *_DESC_t[] = {
 	"   FrosLaze setup C clang default",
 
 	"for help",
-	"version information"
+	"version information",
+	"for quitting FrosLaze runtime"
 };
 
 // Remove new line
@@ -73,13 +75,13 @@ void Rhoux_Help(char *_VALUE){
 	if (strcmp( _VALUE, "help") == 0){
 		printf("\n");
 
+		int H_LEN = 5;
 		printf("Available Options: \n");
-		for (int x = 0; x < 4; ++x) {
+		for (int x = 0; x < H_LEN; ++x) {
 			printf(" %s\n", _COM_Help_t[x]);
 			printf(" - %s\n", _DESC_t[x]);
 			printf("\n");
 		}
-		printf("\n");
 	}
 }
 
