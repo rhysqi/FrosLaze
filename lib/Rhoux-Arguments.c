@@ -6,11 +6,20 @@
 #include <stdbool.h>
 #include <string.h>
 
-const char *_DESC_t[] = {
+const char *_COM_Help_t[] = {
 	"build",
 	"setup",
 	"help",
 	"version"
+};
+
+const char *_DESC_t[] = {
+	"for build using Rhoux-FrosLaze",
+	"for generate default setup  \n"
+	"   Rhoux-FrosLaze setup C clang default",
+
+	"for help",
+	"version information"
 };
 
 // Remove new line
@@ -53,27 +62,22 @@ void Rhoux_Build(char _VALUE[]){
 
 void Rhoux_End(char *_VALUE){
 	if (strcmp(_VALUE, "exit") == 0) {
-		printf("Rhoux-FrosLaze Terminated !\n");
+		printf("Quitting Rhoux-FrosLaze !!\n");
 		exit(1);
 	}
-}
-
-
-// Rhoux Parsing Function
-void Rhoux_Parser(int COUNT, char *_VALUE[]){
-	// Rhoux Arguments
-	
 }
 
 // Help Function
 void Rhoux_Help(char *_VALUE){
 	Rhoux_RM_Line(_VALUE,'\n');
-	if (strcmp( _VALUE, _DESC_t[2]) == 0){
+	if (strcmp( _VALUE, "help") == 0){
 		printf("\n");
 
 		printf("Available Options: \n");
 		for (int x = 0; x < 4; ++x) {
-			printf(" %s\n", _DESC_t[x]);
+			printf(" %s\n", _COM_Help_t[x]);
+			printf(" - %s\n", _DESC_t[x]);
+			printf("\n");
 		}
 		printf("\n");
 	}
@@ -86,4 +90,10 @@ void Rhoux_Version(char *_VALUE){
 		printf("Rhoux-FrosLaze Version: %s\n", VERSION);
 		printf("\n");
 	}
+}
+
+// Rhoux Parsing Function
+void Rhoux_Parser(int COUNT, char *_VALUE[]){
+	// Rhoux Arguments
+	
 }

@@ -26,7 +26,6 @@ void Arguments_Runtime(int COUNT, char *_VALUE[]){
 	Rhoux_Version(_VALUE[DATA]);
 	Rhoux_Setup(_VALUE[DATA]);
 	Rhoux_End(_VALUE[DATA]);
-
 }
 
 
@@ -55,7 +54,5 @@ void Rhoux_Args(int COUNT, char *_VALUE[]){
 	Rhoux_Version(_VALUE[DATA]);
 	Rhoux_Setup(_VALUE[DATA]);
 	Rhoux_Build(_VALUE[DATA]);
-
-
 }
 
