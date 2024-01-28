@@ -16,7 +16,7 @@ const char *_COM_Help_t[] = {
 const char *_DESC_t[] = {
 	"for build using Rhoux-FrosLaze",
 	"for generate default setup  \n"
-	"   Rhoux-FrosLaze setup C clang default",
+	"   FrosLaze setup C clang default",
 
 	"for help",
 	"version information"
@@ -38,7 +38,7 @@ void Rhoux_RM_Line(char *_STR, char _Remove) {
 void Rhoux_Setup(char _VALUE[]){
 	Rhoux_RM_Line(_VALUE,'\n');
 	if (strcmp(_VALUE, "setup") == 0) {
-		printf("Rhoux-FrosLaze setup ...\n");
+		printf("FrosLaze setup ...\n");
 		
 	}
 }
@@ -46,7 +46,7 @@ void Rhoux_Setup(char _VALUE[]){
 void Rhoux_Build(char _VALUE[]){
 	Rhoux_RM_Line(_VALUE,'\n');
 	if (strcmp(_VALUE, "build") == 0) {
-		printf("Rhoux-FrosLaze build ...\n");
+		printf("FrosLaze build ...\n");
 		
 		// Blaze Check Arguments
 		Blaze_Parser(&_VALUE);

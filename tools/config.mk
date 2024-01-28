@@ -3,7 +3,7 @@
 CC			=	clang
 CSTD		=	-std=c11
 
-CFLAGS		=	-O3
+CFLAGS		=	-O3 -nostdinc++
 
 CFLAGS		+=	-fno-fixed-point -fno-strict-aliasing -fno-exceptions \
 				-fno-spell-checking -fno-rtti -fno-rtti-data -fno-access-control \
