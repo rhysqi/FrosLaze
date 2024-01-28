@@ -26,21 +26,34 @@ void Rhoux_RM_Line(char *_STR, char _Remove) {
     _STR[j] = '\0';  // Adding null character
 }
 
-void Rhoux_End(char *_VALUE){
+void Rhoux_Setup(char _VALUE[]){
 	Rhoux_RM_Line(_VALUE,'\n');
+	if (strcmp(_VALUE, "setup") == 0) {
+		printf("Rhoux-FrosLaze setup ...\n");
+		
+	}
+}
+
+void Rhoux_Build(char _VALUE[]){
+	Rhoux_RM_Line(_VALUE,'\n');
+	if (strcmp(_VALUE, "build") == 0) {
+		printf("Rhoux-FrosLaze build ...\n");
+		
+	}
+}
+
+void Rhoux_End(char *_VALUE){
 	if (strcmp(_VALUE, "exit") == 0) {
 		printf("Rhoux-FrosLaze Terminated !\n");
 		exit(1);
 	}
 }
 
-// Rhoux Parsing Function
-void Rhoux_Parser(char *_VALUE){
 
+// Rhoux Parsing Function
+void Rhoux_Parser(int COUNT, char *_VALUE[]){
 	// Rhoux Arguments
-	Rhoux_Help(_VALUE);
-	Rhoux_Version(_VALUE);
-	Rhoux_End(_VALUE);
+	
 }
 
 // Help Function

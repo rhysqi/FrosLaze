@@ -3,14 +3,14 @@
 
 int main(int argc, char *argv[2]) {
 
-	if (argc <= 2) {
+	if (argc == 2) {
 		// First Rhoux, Blaze, Frost Arguments Parsing
 	    Rhoux_Args(argc,argv);
-	} else if (argc >= 2) {
-		printf("Arguments cannot more than %d !\n", argc);
-	} else {
+	} else if (argc == 1) {
 		// Go to system service
-	    Rhoux_FrosLaze(argc, *argv, 1);
+	    Rhoux_FrosLaze(*argv, 2);
+	} else {
+		printf("Arguments cannot more than %d !\n", argc);
 	}
     return 0;
 }

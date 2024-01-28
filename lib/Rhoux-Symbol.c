@@ -6,6 +6,10 @@
 #include <stdbool.h>
 #include <string.h>
 
-void Rhoux_Symbol(char *_VALUE[]){
+const char *_COMMENT[2] = {"(=", "=)"};
+
+char _FUNC[3] = {'{','}', ';'};
+
+void Rhoux_Symbol(int COUNT, char *_VALUE[]){
 
 }

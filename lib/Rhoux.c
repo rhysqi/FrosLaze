@@ -15,45 +15,41 @@ void Rhoux_Interrupt(int SIG_INTR) {
     exit(SIG_INTR);
 }
 
-void Rhoux_FrosLaze(int _COUNT, char *_INPUT, int STATE){
+// Rhoux Runtime Arguments
+void Rhoux_Args_Runtime(int COUNT, char *_VALUE[]){
+	// Arguments Checking
+	int DATA = COUNT - 1;
+	Rhoux_Help(_VALUE[DATA]);
+	Rhoux_Version(_VALUE[DATA]);
+	Rhoux_Setup(_VALUE[DATA]);
+	Rhoux_Build(_VALUE[DATA]);
+}
 
-	char *_BUFF = (char *) malloc(sizeof(MAX_COUNT));
 
-	if (_COUNT <= 1) {
-	    printf("(=) Rhoux-FrosLaze build system %s (=)\n\n", VERSION);
-		volatile int MSG[] = {-1, 2, 5};
+void Rhoux_FrosLaze(char *_INPUT, int STATE){
+	
+	char *BUFF = _INPUT;
+	volatile int MSG[] = { 0, 10, 5, -5};
 
-		// System Service
-		while (MSG[STATE] > 0) {
-
+	printf("(=) Rhoux-FrosLaze Build System (=)\n");
+	while (MSG[STATE] < MSG[STATE-1]) {
+		if (BUFF == NULL) {
+			printf("X= \n");
+		} else {
 			printf("X= ");
-			char *Base = fgets(_INPUT, MAX_COUNT, stdin);
-
-			// Check arguments length
-			if (strlen(Base) <= MAX_COUNT) {
-				// Process Rhoux, Blaze, and Frost running
-				if (Base != NULL) {
-					char *BUFF = Base;
-					Rhoux_Parser(Base);
-				} else if (strcmp(Base, "^C")) {
-					// Interrupt Signal
-					Rhoux_Interrupt(1);
-				}
-			} else {
-				printf("Arguments are limits for %d Characters \n", MIN_COUNT);
-				exit(1);
-			}
+			fgets(BUFF, 10, stdin);
+			Rhoux_Args_Runtime(1,&BUFF);
 		}
-	}
-	else {
-		exit(1);
 	}
 }
 
 // Rhoux Arguments
 void Rhoux_Args(int COUNT, char *_VALUE[]){
 	// Arguments Checking
-	COUNT = 1;
-	Rhoux_Help(_VALUE[COUNT]);
-	Rhoux_Version(_VALUE[COUNT]);
+	int DATA = COUNT - 1;
+	Rhoux_Help(_VALUE[DATA]);
+	Rhoux_Version(_VALUE[DATA]);
+	Rhoux_Setup(_VALUE[DATA]);
+	Rhoux_Build(_VALUE[DATA]);
 }
+
