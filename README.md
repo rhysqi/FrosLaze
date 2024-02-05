@@ -1,4 +1,4 @@
-# Rhoux-FrosLaze
+# FrosLaze
 Cross-Platform modern build system written in C. <br>
 Suitable for small and complex project and also easy to use. <br>
 Please read the PDF in docs folder for more information
@@ -48,8 +48,8 @@ GNU makefile
 ### Windows
 1. Create Folder Here
 ```
-git clone https://github.com/rhysqi/Rhoux-FrosLaze.git
-cd Rhoux-FrosLaze
+git clone https://github.com/rhysqi/FrosLaze.git
+cd FrosLaze
 mkdir build, bin, build/cache
 ```
 
@@ -60,8 +60,8 @@ make buildware-win32
 
 ### FreeBSD
 ```
-git clone https://github.com/rhysqi/Rhoux-FrosLaze.git
-cd Rhoux-FrosLaze
+git clone https://github.com/rhysqi/FrosLaze.git
+cd FrosLaze
 make buildware
 ```
 
