@@ -6,8 +6,8 @@ Please read the PDF in docs folder for more information
 | File Format | Description |
 | - | -
 | `.fros` | Compiler options, arguments and libraries linking.
-| `.laze` | Setup project structures, create library and compiler target.
-| `.scaf` | Extensions for create projects template
+| `.laze` | Manage files, folders, and config ThreadForge
+| `.scaf` | Extensions for create project templates
 
 # Features
 - Multithread build
