@@ -10,9 +10,8 @@ Please read the PDF in docs folder for more information
 | `.scaf` | Extensions for create project templates
 
 # Features
-- Multithread build
-- Dependencies version lock
-- Support multi compiler and interpreter
+- Setup project templates
+- ThreadForge
 
 # Project Templates
 - [x] C
@@ -22,11 +21,8 @@ Please read the PDF in docs folder for more information
 ## How to use
 - Runtime
 ```
-FrosLaze
-```
-- Setup
-```
-FrosLaze setup
+FrosLaze help
+FrosLaze -help
 ```
 
 # Tested Platform
