@@ -1,26 +1,22 @@
 # FrosLaze
-Cross-Platform modern build system written in C. <br>
+Cross-Platform build system written in C. <br>
 Suitable for small and complex project and also easy to use. <br>
 Please read the PDF in docs folder for more information
 
-| Filename | Description |
+| File Format | Description |
 | - | -
-| `.laze` | Stand for `blaze` file. The purpose for setup project structures, create library and compiler target.
-| `.fros` | Stand for `frost` file. The purpose for compiler options, arguments and libraries linking.
-| `.rfl`  | Stand for `rhoux` file. The purpose for binding `.laze` file and `.fros` file to build and build `multi/single` target using FrosLaze.
+| `.fros` | Compiler options, arguments and libraries linking.
+| `.laze` | Setup project structures, create library and compiler target.
+| `.scaf` | Extensions for create projects template
 
 # Features
-- Library searching
-- Multi-target compiling
+- Multithread build
 - Dependencies version lock
 - Support multi compiler and interpreter
 
-| Language | Tools | Support Version
-| - | - | -
-| C/C++ | Clang | v1.0 |
-| Java | - | - |
-| Python | - | - |
-| Lua | - | - |
+# Project Templates
+- [x] C
+- [x] C++
 
 
 ## How to use
@@ -50,7 +46,6 @@ GNU makefile
 ```
 git clone https://github.com/rhysqi/FrosLaze.git
 cd FrosLaze
-mkdir build, bin, build/cache
 ```
 
 2. Build
@@ -64,4 +59,3 @@ git clone https://github.com/rhysqi/FrosLaze.git
 cd FrosLaze
 make buildware
 ```
-
