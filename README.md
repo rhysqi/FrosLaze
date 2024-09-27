@@ -1,7 +1,7 @@
 # FrosLaze
 Cross-Platform build system written in C. <br>
 Suitable for small and complex project and also easy to use. <br>
-Please read the PDF in docs folder for more information
+Documentation are in FrosLaze programs
 
 | File Format | Description |
 | - | -
